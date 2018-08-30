@@ -48,6 +48,7 @@
             this.lb_themes.Name = "lb_themes";
             this.lb_themes.Size = new System.Drawing.Size(340, 264);
             this.lb_themes.TabIndex = 1;
+            this.lb_themes.SelectedIndexChanged += new System.EventHandler(this.lb_themes_SelectedIndexChanged);
             // 
             // b_play
             // 
@@ -61,6 +62,7 @@
             this.b_play.TabIndex = 2;
             this.b_play.Text = "Jogar";
             this.b_play.UseVisualStyleBackColor = false;
+            this.b_play.Click += new System.EventHandler(this.b_play_Click);
             // 
             // b_new
             // 
@@ -76,22 +78,26 @@
             // b_edit
             // 
             this.b_edit.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.b_edit.Enabled = false;
             this.b_edit.Location = new System.Drawing.Point(93, 372);
             this.b_edit.Name = "b_edit";
             this.b_edit.Size = new System.Drawing.Size(75, 23);
             this.b_edit.TabIndex = 4;
             this.b_edit.Text = "Editar";
             this.b_edit.UseVisualStyleBackColor = true;
+            this.b_edit.Click += new System.EventHandler(this.b_edit_Click);
             // 
             // b_delete
             // 
             this.b_delete.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.b_delete.Enabled = false;
             this.b_delete.Location = new System.Drawing.Point(277, 372);
             this.b_delete.Name = "b_delete";
             this.b_delete.Size = new System.Drawing.Size(75, 23);
             this.b_delete.TabIndex = 5;
             this.b_delete.Text = "Apagar";
             this.b_delete.UseVisualStyleBackColor = true;
+            this.b_delete.Click += new System.EventHandler(this.b_delete_Click);
             // 
             // pb_title
             // 

@@ -31,9 +31,13 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup>
-    <ApplicationIcon>Resources\dino_icon_vfy_icon.ico</ApplicationIcon>
+    <ApplicationIcon>
+    </ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Newtonsoft.Json, Version=11.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.11.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -47,17 +51,26 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="FormCard.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormCard.Designer.cs">
+      <DependentUpon>FormCard.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Card.cs" />
+    <Compile Include="Models\Tag.cs" />
+    <Compile Include="Models\Theme.cs" />
     <Compile Include="FormGame.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="FormGame.Designer.cs">
       <DependentUpon>FormGame.cs</DependentUpon>
     </Compile>
-    <Compile Include="FormConfig.cs">
+    <Compile Include="FormTheme.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FormConfig.Designer.cs">
-      <DependentUpon>FormConfig.cs</DependentUpon>
+    <Compile Include="FormTheme.Designer.cs">
+      <DependentUpon>FormTheme.cs</DependentUpon>
     </Compile>
     <Compile Include="FormMain.cs">
       <SubType>Form</SubType>
@@ -67,8 +80,21 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="FormConfig.resx">
-      <DependentUpon>FormConfig.cs</DependentUpon>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <DependentUpon>Settings.settings</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="FormCard.resx">
+      <DependentUpon>FormCard.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormTheme.resx">
+      <DependentUpon>FormTheme.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormGame.resx">
       <DependentUpon>FormGame.cs</DependentUpon>
@@ -78,23 +104,26 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <Compile Include="Properties\Resources.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DependentUpon>Resources.resx</DependentUpon>
-      <DesignTime>True</DesignTime>
-    </Compile>
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\dino-title.png" />
+    <None Include="Resources\picture.png" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Resources\dino_icon_vfy_icon.ico" />
+    <None Include="Resources\dino_title.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\dino_icon.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
