@@ -17,18 +17,8 @@ namespace dino.Models
 
         public Tag()
         {
-            // Needed empty constructor
-        }
-
-        public Tag(string id)
-        {
-            Id = id;
-        }
-
-        public Tag(string id, string label)
-        {
-            Id = id;
-            Label = label;
+            Id = null;
+            Label = null;
         }
 
         public override string ToString()

@@ -25,7 +25,7 @@ namespace dino.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute(@"[{""theme"":""animais"",""cards"":[{""id"":1,""name"":""gato"",""image"":""gato.jpg"",""tag"":{""label"":""Card 1"",""id"":""123456789ABC""}},{""id"":2,""name"":""elefante"",""image"":""elefante.jpg"",""tag"":{""label"":""Card 2"",""id"":""123456789DEF""}},{""id"":3,""name"":""carneiro"",""image"":""carneiro.jpg"",""tag"":{""label"":""Card 2"",""id"":""123456789GHI""}}]},{""theme"":""animais2"",""cards"":[{""id"":1,""name"":""gato"",""image"":""gato.jpg"",""tag"":{""label"":""Card 1"",""id"":""123456789ABC""}},{""id"":2,""name"":""elefante"",""image"":""elefante.jpg"",""tag"":{""label"":""Card 2"",""id"":""123456789DEF""}},{""id"":3,""name"":""carneiro"",""image"":""carneiro.jpg"",""tag"":{""label"":""Card 2"",""id"":""123456789GHI""}}]}]")]
+        [global::System.Configuration.DefaultSettingValueAttribute(@"[{""theme"":""animais"",""cards"":[{""id"":1,""name"":""gato"",""image"":""gato.jpg"",""tag"":{""label"":""Card 1"",""id"":""123456789ABC""}},{""id"":2,""name"":""elefante"",""image"":""elefante.jpg"",""tag"":{""label"":""Card 2"",""id"":""123456789DEF""}},{""id"":3,""name"":""carneiro"",""image"":""carneiro.jpg"",""tag"":{""label"":""Card 2"",""id"":""123456789GHI""}}]}]")]
         public string themes {
             get {
                 return ((string)(this["themes"]));
@@ -45,6 +45,18 @@ namespace dino.Properties {
             }
             set {
                 this["tags"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("1")]
+        public int cards_count {
+            get {
+                return ((int)(this["cards_count"]));
+            }
+            set {
+                this["cards_count"] = value;
             }
         }
     }

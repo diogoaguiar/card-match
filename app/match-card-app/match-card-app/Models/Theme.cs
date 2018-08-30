@@ -17,28 +17,10 @@ namespace dino.Models
 
         public Theme()
         {
-            // Needed empty constructor
+            Name = null;
+            Cards = new List<Card>();
         }
-
-        public Theme(string name)
-        {
-            Name = name;
-        }
-
-        public Theme(string name, List<Card> cards)
-        {
-            Name = name;
-            Cards = cards;
-        }
-
-        public void AddCard(Card card)
-        {
-            Cards.Add(card);
-            Cards.Sort();
-        }
-
-        public bool RemoveCard(Card card) => Cards.Remove(card);
-
+        
         public override string ToString()
         {
             return Name;
@@ -63,27 +45,5 @@ namespace dino.Models
             hashCode = hashCode * -1521134295 + EqualityComparer<List<Card>>.Default.GetHashCode(Cards);
             return hashCode;
         }
-
-        /*public class ThemeConverter : JsonConverter
-        {
-            public override bool CanConvert(Type objectType)
-            {
-                return objectType == typeof(Tag);
-            }
-
-            public override object ReadJson(JsonReader reader, Type objectType, object existingValue, JsonSerializer serializer)
-            {
-                JObject jo = JObject.Load(reader);
-                string name = (string)jo.GetValue("name");
-                string cardsJson = (string)jo.GetValue("cards");
-                List<Card> cards = JsonConvert.DeserializeObject<List<Card>>(cardsJson, new Card.CardConverter());
-                return new Theme(name, cards);
-            }
-
-            public override void WriteJson(JsonWriter writer, object value, JsonSerializer serializer)
-            {
-                throw new NotImplementedException();
-            }
-        }*/
     }
 }

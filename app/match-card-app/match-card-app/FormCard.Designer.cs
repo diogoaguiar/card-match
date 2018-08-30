@@ -107,7 +107,6 @@
             this.l_image_name.Name = "l_image_name";
             this.l_image_name.Size = new System.Drawing.Size(116, 18);
             this.l_image_name.TabIndex = 9;
-            this.l_image_name.Text = "image.jpeg";
             // 
             // pb_image_preview
             // 
@@ -118,6 +117,7 @@
             this.pb_image_preview.Location = new System.Drawing.Point(15, 94);
             this.pb_image_preview.Name = "pb_image_preview";
             this.pb_image_preview.Size = new System.Drawing.Size(283, 152);
+            this.pb_image_preview.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pb_image_preview.TabIndex = 10;
             this.pb_image_preview.TabStop = false;
             // 
@@ -170,6 +170,7 @@
             this.Name = "FormCard";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Configurações do Cartão";
+            this.Load += new System.EventHandler(this.FormCard_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pb_image_preview)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

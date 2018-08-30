@@ -16,31 +16,31 @@ namespace dino
 {
     public partial class FormMain : Form
     {
+        private Config config;
+
         public FormMain()
         {
             InitializeComponent();
-            LoadData();
-        }
 
-        private void LoadData()
-        {
-            string tagsJson = Properties.Settings.Default.tags;
-            string themesJson = Properties.Settings.Default.themes;
-            List<Tag> tags = JsonConvert.DeserializeObject<List<Tag>>(tagsJson);
-            JArray themesUncasted = JsonConvert.DeserializeObject<JArray>(themesJson);
-            List<Theme> themes = JsonConvert.DeserializeObject<List<Theme>>(themesJson);
+            Text = System.Reflection.Assembly.GetExecutingAssembly().GetName().Name;
+            config = Config.GetInstance();
         }
 
         private void FormMain_Load(object sender, EventArgs e)
         {
-            Text = System.Reflection.Assembly.GetExecutingAssembly().GetName().Name;
+            ReloadThemesList();
+        }
+
+        private void ReloadThemesList()
+        {
+            lb_themes.Items.Clear();
+            lb_themes.Items.AddRange(config.Themes.ToArray());
         }
 
         private void lb_themes_SelectedIndexChanged(object sender, EventArgs e)
         {
             int? themeIndex = lb_themes.SelectedIndex;
-
-            // Set buttons status
+            
             b_edit.Enabled = themeIndex >= 0;
             b_delete.Enabled = themeIndex >= 0;
             b_play.Enabled = themeIndex >= 0;
@@ -50,12 +50,14 @@ namespace dino
         {
             FormTheme configForm = new FormTheme();
             configForm.ShowDialog();
+            ReloadThemesList();
         }
 
         private void b_edit_Click(object sender, EventArgs e)
         {
-            FormTheme configForm = new FormTheme();
+            FormTheme configForm = new FormTheme(lb_themes.SelectedItem as Theme);
             configForm.ShowDialog();
+            ReloadThemesList();
         }
 
         private void b_delete_Click(object sender, EventArgs e)
@@ -66,13 +68,14 @@ namespace dino
 
             if (confirmation == DialogResult.Yes)
             {
-                // Delete item
+                config.DeleteTheme(lb_themes.SelectedItem as Theme);
+                ReloadThemesList();
             }
         }
 
         private void b_play_Click(object sender, EventArgs e)
         {
-            // Play Game
+            // TODO: Play Game
         }
     }
 }

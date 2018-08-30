@@ -49,6 +49,7 @@
             this.tb_theme_name.Name = "tb_theme_name";
             this.tb_theme_name.Size = new System.Drawing.Size(210, 20);
             this.tb_theme_name.TabIndex = 0;
+            this.tb_theme_name.TextChanged += new System.EventHandler(this.tb_theme_name_TextChanged);
             // 
             // l_theme_name
             // 
@@ -137,27 +138,25 @@
             // b_save
             // 
             this.b_save.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.b_save.Enabled = false;
             this.b_save.Location = new System.Drawing.Point(867, 446);
             this.b_save.Name = "b_save";
             this.b_save.Size = new System.Drawing.Size(75, 23);
             this.b_save.TabIndex = 6;
             this.b_save.Text = "Guardar";
             this.b_save.UseVisualStyleBackColor = true;
-            this.b_save.Click += new System.EventHandler(this.b_save_card_Click);
+            this.b_save.Click += new System.EventHandler(this.b_save_Click);
             // 
             // b_cancel
             // 
             this.b_cancel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.b_cancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.b_cancel.Enabled = false;
             this.b_cancel.Location = new System.Drawing.Point(786, 446);
             this.b_cancel.Name = "b_cancel";
             this.b_cancel.Size = new System.Drawing.Size(75, 23);
             this.b_cancel.TabIndex = 7;
             this.b_cancel.Text = "Cancelar";
             this.b_cancel.UseVisualStyleBackColor = true;
-            this.b_cancel.Click += new System.EventHandler(this.b_cancel_card_Click);
+            this.b_cancel.Click += new System.EventHandler(this.b_cancel_Click);
             // 
             // FormTheme
             // 
@@ -177,7 +176,7 @@
             this.Name = "FormTheme";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Configurações do Tema";
-            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FormConfig_FormClosing);
+            this.Load += new System.EventHandler(this.FormTheme_Load);
             this.gb_cards.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pb_image_preview)).EndInit();
             this.ResumeLayout(false);

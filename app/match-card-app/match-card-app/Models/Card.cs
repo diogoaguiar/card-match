@@ -19,19 +19,14 @@ namespace dino.Models
         [JsonProperty("tag")]
         public Tag Tag { get; set; }
         [JsonProperty("image")]
-        public string ImagePath { get; set; }
+        public string ImageFile { get; set; }
 
         public Card()
         {
-            // Needed empty constructor
-        }
-
-        public Card(int id, string name, Tag tag, string imagePath)
-        {
-            Id = id;
-            Name = name;
-            Tag = tag;
-            ImagePath = imagePath;
+            Id = 0;
+            Name = null;
+            Tag = null;
+            ImageFile = null;
         }
 
         public override string ToString()
@@ -45,7 +40,7 @@ namespace dino.Models
             {
                 return Name.Equals((obj as Card).Name) &&
                     Tag.Equals((obj as Card).Tag) &&
-                    ImagePath.Equals((obj as Card).ImagePath);
+                    ImageFile.Equals((obj as Card).ImageFile);
             }
 
             return base.Equals(obj);
@@ -56,7 +51,7 @@ namespace dino.Models
             var hashCode = -64030534;
             hashCode = hashCode * -1521134295 + EqualityComparer<string>.Default.GetHashCode(Name);
             hashCode = hashCode * -1521134295 + EqualityComparer<Tag>.Default.GetHashCode(Tag);
-            hashCode = hashCode * -1521134295 + EqualityComparer<string>.Default.GetHashCode(ImagePath);
+            hashCode = hashCode * -1521134295 + EqualityComparer<string>.Default.GetHashCode(ImageFile);
             return hashCode;
         }
     }
