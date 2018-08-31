@@ -138,7 +138,7 @@
             // b_save
             // 
             this.b_save.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.b_save.Location = new System.Drawing.Point(867, 446);
+            this.b_save.Location = new System.Drawing.Point(786, 446);
             this.b_save.Name = "b_save";
             this.b_save.Size = new System.Drawing.Size(75, 23);
             this.b_save.TabIndex = 6;
@@ -150,7 +150,7 @@
             // 
             this.b_cancel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.b_cancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.b_cancel.Location = new System.Drawing.Point(786, 446);
+            this.b_cancel.Location = new System.Drawing.Point(867, 446);
             this.b_cancel.Name = "b_cancel";
             this.b_cancel.Size = new System.Drawing.Size(75, 23);
             this.b_cancel.TabIndex = 7;

@@ -45,7 +45,7 @@ namespace dino
             cb_tag.SelectedIndex = 0;
             if (card.Name != null)
             {
-                l_image_name.Text = card.ImageFile;
+                l_image_name.Text = "";
                 pb_image_preview.ImageLocation = System.IO.Path.Combine(config.ImagesBasePath, card.ImageFile);
             }
         }
@@ -56,9 +56,59 @@ namespace dino
 
             if (result == DialogResult.OK)
             {
-                l_image_name.Text = System.IO.Path.GetFileName(ofd_image.FileName);
+                string imageFile = System.IO.Path.GetFileName(ofd_image.FileName);
+                card.ImageFile = imageFile;
+                l_image_name.Text = imageFile;
                 pb_image_preview.ImageLocation = ofd_image.FileName;
+                card.ImageFile = imageFile;
             }
+        }
+
+        private void b_save_Click(object sender, EventArgs e)
+        {
+            if (originalCard == null || (!originalCard.Equals(card) && !card.ImageFile.Equals(originalCard.ImageFile)))
+            {
+                card.ImageFile = CopyToPicturesFolder(ofd_image.FileName);
+                //System.IO.File.Delete(System.IO.Path.Combine(Config.GetInstance().ImagesBasePath, originalCard.ImageFile));
+            }
+
+            Close();
+        }
+
+        private string CopyToPicturesFolder(string sourceFile)
+        {
+            string targetPath = Config.GetInstance().ImagesBasePath;
+            string targetFileName = DateTime.Now.ToString("yyyyMMddHHmmssffff") + "_" + System.IO.Path.GetFileName(sourceFile);
+            string targetFile = System.IO.Path.Combine(targetPath, targetFileName);
+
+
+            if (!System.IO.Directory.Exists(targetPath))
+            {
+                System.IO.Directory.CreateDirectory(targetPath);
+            }
+
+            System.IO.File.Copy(sourceFile, targetFile, true);
+            return targetFileName;
+        }
+
+        private void b_cancel_Click(object sender, EventArgs e)
+        {
+            Close();
+        }
+
+        private void tb_name_TextChanged(object sender, EventArgs e)
+        {
+            card.Name = tb_name.Text;
+        }
+
+        private void cb_tag_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            card.Tag = cb_tag.SelectedItem as Tag;
+        }
+
+        public Card GetCard()
+        {
+            return card;
         }
     }
 }

@@ -29,13 +29,20 @@ namespace dino
             InitializeComponent();
             originalTheme = theme;
             this.theme = CloneExtensions.CloneFactory.GetClone(theme);
+            this.theme.Cards.Sort();
         }
 
         private void FormTheme_Load(object sender, EventArgs e)
         {
+            RefreshForm();
+        }
+
+        private void RefreshForm()
+        {
             tb_theme_name.Text = theme.Name ?? "";
             ReloadCardList();
             LoadImage();
+            b_edit.Enabled = b_delete.Enabled = (lb_cards.SelectedItem != null);
         }
 
         private void ReloadCardList()
@@ -75,9 +82,7 @@ namespace dino
             if (result == DialogResult.Yes)
             {
                 theme.Cards.Remove(selectedCard);
-                ReloadCardList();
-                b_edit.Enabled = b_delete.Enabled = lb_cards.SelectedItem != null;
-                LoadImage();
+                RefreshForm();
             }
         }
 
@@ -89,15 +94,39 @@ namespace dino
                 return;
             }
 
-            FormCard form = new FormCard(theme);
-            form.ShowDialog();
+            using (FormCard form = new FormCard(theme))
+            {
+                DialogResult result = form.ShowDialog();
+
+                if (result == DialogResult.OK)
+                {
+                    Card card = form.GetCard();
+                    theme.Cards.Add(card);
+                    theme.Cards.Sort();
+                    RefreshForm();
+                    lb_cards.SelectedItem = card;
+                }
+            }
         }
 
         private void b_edit_Click(object sender, EventArgs e)
         {
             Card card = lb_cards.SelectedItem as Card;
-            FormCard form = new FormCard(theme, card);
-            form.ShowDialog();
+
+            using (FormCard form = new FormCard(theme, card))
+            {
+                DialogResult result = form.ShowDialog();
+
+                if (result == DialogResult.OK)
+                {
+                    Card editedCard = form.GetCard();
+                    theme.Cards.Remove(card);
+                    theme.Cards.Add(editedCard);
+                    theme.Cards.Sort();
+                    RefreshForm();
+                    lb_cards.SelectedItem = editedCard;
+                }
+            }
         }
 
         private void b_save_Click(object sender, EventArgs e)

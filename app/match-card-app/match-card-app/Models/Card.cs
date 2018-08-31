@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace dino.Models
 {
-    public class Card
+    public class Card : IComparable
     {
         [JsonProperty("id")]
         public int Id { get; set;  }
@@ -53,6 +53,11 @@ namespace dino.Models
             hashCode = hashCode * -1521134295 + EqualityComparer<Tag>.Default.GetHashCode(Tag);
             hashCode = hashCode * -1521134295 + EqualityComparer<string>.Default.GetHashCode(ImageFile);
             return hashCode;
+        }
+
+        public int CompareTo(object obj)
+        {
+            return ToString().CompareTo(obj.ToString());
         }
     }
 }

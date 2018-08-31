@@ -28,7 +28,13 @@ namespace dino
 
         private void FormMain_Load(object sender, EventArgs e)
         {
+            RefreshForm();
+        }
+
+        private void RefreshForm()
+        {
             ReloadThemesList();
+            b_edit.Enabled = b_delete.Enabled = b_play.Enabled = (lb_themes.SelectedItem != null);
         }
 
         private void ReloadThemesList()
@@ -50,14 +56,14 @@ namespace dino
         {
             FormTheme configForm = new FormTheme();
             configForm.ShowDialog();
-            ReloadThemesList();
+            RefreshForm();
         }
 
         private void b_edit_Click(object sender, EventArgs e)
         {
             FormTheme configForm = new FormTheme(lb_themes.SelectedItem as Theme);
             configForm.ShowDialog();
-            ReloadThemesList();
+            RefreshForm();
         }
 
         private void b_delete_Click(object sender, EventArgs e)
@@ -69,13 +75,16 @@ namespace dino
             if (confirmation == DialogResult.Yes)
             {
                 config.DeleteTheme(lb_themes.SelectedItem as Theme);
-                ReloadThemesList();
+                RefreshForm();
             }
         }
 
         private void b_play_Click(object sender, EventArgs e)
         {
-            // TODO: Play Game
+            FormGame gameForm = new FormGame(lb_themes.SelectedItem as Theme);
+            Hide();
+            gameForm.ShowDialog();
+            Show();
         }
     }
 }

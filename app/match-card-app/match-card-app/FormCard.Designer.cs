@@ -69,6 +69,7 @@
             this.tb_name.Name = "tb_name";
             this.tb_name.Size = new System.Drawing.Size(197, 20);
             this.tb_name.TabIndex = 3;
+            this.tb_name.TextChanged += new System.EventHandler(this.tb_name_TextChanged);
             // 
             // cb_tag
             // 
@@ -79,6 +80,7 @@
             this.cb_tag.Name = "cb_tag";
             this.cb_tag.Size = new System.Drawing.Size(197, 21);
             this.cb_tag.TabIndex = 6;
+            this.cb_tag.SelectedIndexChanged += new System.EventHandler(this.cb_tag_SelectedIndexChanged);
             // 
             // l_image
             // 
@@ -123,22 +125,25 @@
             // 
             // b_save
             // 
-            this.b_save.Location = new System.Drawing.Point(227, 256);
+            this.b_save.DialogResult = System.Windows.Forms.DialogResult.OK;
+            this.b_save.Location = new System.Drawing.Point(142, 256);
             this.b_save.Name = "b_save";
             this.b_save.Size = new System.Drawing.Size(75, 23);
             this.b_save.TabIndex = 11;
             this.b_save.Text = "Guardar";
             this.b_save.UseVisualStyleBackColor = true;
+            this.b_save.Click += new System.EventHandler(this.b_save_Click);
             // 
             // b_cancel
             // 
             this.b_cancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.b_cancel.Location = new System.Drawing.Point(146, 256);
+            this.b_cancel.Location = new System.Drawing.Point(223, 256);
             this.b_cancel.Name = "b_cancel";
             this.b_cancel.Size = new System.Drawing.Size(75, 23);
             this.b_cancel.TabIndex = 12;
             this.b_cancel.Text = "Cancelar";
             this.b_cancel.UseVisualStyleBackColor = true;
+            this.b_cancel.Click += new System.EventHandler(this.b_cancel_Click);
             // 
             // ofd_image
             // 

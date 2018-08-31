@@ -59,5 +59,23 @@ namespace dino.Properties {
                 this["cards_count"] = value;
             }
         }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("5000")]
+        public int next_slide_delay {
+            get {
+                return ((int)(this["next_slide_delay"]));
+            }
+        }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("COM1")]
+        public string serial_port {
+            get {
+                return ((string)(this["serial_port"]));
+            }
+        }
     }
 }
