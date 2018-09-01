@@ -12,9 +12,9 @@ namespace dino.Models
         // Create the serial port with basic settings
         public SerialPort Port { get; }
 
-        public SerialCommunication(SerialDataReceivedEventHandler handler)
+        public SerialCommunication(string comPort, SerialDataReceivedEventHandler handler)
         {
-            Port = new SerialPort(Config.GetInstance().SerialPort, 9600, Parity.None, 8, StopBits.One);
+            Port = new SerialPort(comPort, 9600, Parity.None, 8, StopBits.One);
             Console.WriteLine("Incoming Data:");
 
             // Attach a method to be called when there is data waiting in the port's buffer

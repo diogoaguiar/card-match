@@ -125,7 +125,6 @@
             // 
             // b_save
             // 
-            this.b_save.DialogResult = System.Windows.Forms.DialogResult.OK;
             this.b_save.Location = new System.Drawing.Point(142, 256);
             this.b_save.Name = "b_save";
             this.b_save.Size = new System.Drawing.Size(75, 23);

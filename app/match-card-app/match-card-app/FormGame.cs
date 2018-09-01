@@ -21,10 +21,12 @@ namespace dino
         private Bitmap wrongImage;
         private Theme theme;
         private Timer timerNext;
+        private Timer timerCheck;
         private int index;
         private SerialCommunication serial;
+        private string serialInput;
 
-        public FormGame(Theme theme)
+        public FormGame(Theme theme, string comPort)
         {
             InitializeComponent();
             correctSound = new System.Media.SoundPlayer(Properties.Resources.correct);
@@ -36,10 +38,16 @@ namespace dino
             {
                 Interval = Config.GetInstance().NextSlideDelay
             };
+            timerCheck = new Timer
+            {
+                Interval = 500
+            };
             timerNext.Tick += new EventHandler(timerNext_Tick);
+            timerCheck.Tick += new EventHandler(timerCheck_Tick);
 
             // Serial Communication
-            serial = new SerialCommunication(new SerialDataReceivedEventHandler(ParseCardId));
+            serial = new SerialCommunication(comPort, new SerialDataReceivedEventHandler(ParseCardId));
+            serialInput = "";
         }
 
         private void FormGame_Load(object sender, EventArgs e)
@@ -50,10 +58,12 @@ namespace dino
             try
             {
                 serial.Port.Open();
+                serial.Port.Write("1");
+                timerCheck.Start();
             }
-            catch (IOException ioe)
+            catch (Exception exception)
             {
-                Console.WriteLine(ioe.StackTrace);
+                Console.WriteLine(exception.StackTrace);
                 Close();
             }
         }
@@ -79,7 +89,6 @@ namespace dino
 
         private void Correct()
         {
-            serial.Port.Close();
             pb_result.Image = correctImage;
             pb_result.Visible = true;
             correctSound.Play();
@@ -88,14 +97,13 @@ namespace dino
 
         private void Wrong()
         {
-            serial.Port.Close();
             pb_result.Image = wrongImage;
             pb_result.Visible = true;
             wrongSound.Play();
             timerNext.Start();
         }
 
-        void timerNext_Tick(object sender, EventArgs e)
+        private void timerNext_Tick(object sender, EventArgs e)
         {
             NextSlide();
             timerNext.Stop();
@@ -108,6 +116,8 @@ namespace dino
             {
                 pb_screen.ImageLocation = Path.Combine(Config.GetInstance().ImagesBasePath, theme.Cards[index].ImageFile);
                 serial.Port.Open();
+                serial.Port.Write("1");
+                timerCheck.Start();
             }
             else
             {
@@ -125,11 +135,25 @@ namespace dino
             Wrong();
         }
 
-        private void ParseCardId(object sender, SerialDataReceivedEventArgs e)
+        void ParseCardId(object sender, SerialDataReceivedEventArgs e)
         {
-            string cardId = serial.Port.ReadExisting();
+            serialInput += serial.Port.ReadExisting();
+        }
+
+        private void timerCheck_Tick(object sender, EventArgs e)
+        {
+            //serialInput += serial.Port.ReadExisting();
+            if (!serialInput.EndsWith("\r\n"))
+            {
+                return;
+            }
+
+            serial.Port.Close();
+            timerCheck.Stop();
+            string cardId = serialInput.Trim();
+            serialInput = "";
             Console.WriteLine(cardId);
-            Card card = theme.Cards.Find(c => c.Id.Equals(cardId));
+            Card card = theme.Cards.Find(c => c.Tag.Id.Equals(cardId));
 
             if (theme.Cards[index].Equals(card))
             {
@@ -139,6 +163,12 @@ namespace dino
             {
                 Wrong();
             }
+        }
+
+        private void FormGame_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            serial.Port.Close();
+            serial.Port.Dispose();
         }
     }
 }

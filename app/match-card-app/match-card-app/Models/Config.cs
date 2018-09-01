@@ -14,7 +14,6 @@ namespace dino.Models
         public List<Theme> Themes { get; }
         public string ImagesBasePath { get; }
         public int NextSlideDelay { get; }
-        public string SerialPort { get; }
 
         private Config()
         {
@@ -24,7 +23,6 @@ namespace dino.Models
             LoadThemes();
             ImagesBasePath = System.IO.Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments), "Dino\\pictures");
             NextSlideDelay = Properties.Settings.Default.next_slide_delay;
-            SerialPort = Properties.Settings.Default.serial_port;
         }
 
         public static Config GetInstance()

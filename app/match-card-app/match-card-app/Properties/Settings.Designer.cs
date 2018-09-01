@@ -25,7 +25,7 @@ namespace dino.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute(@"[{""theme"":""animais"",""cards"":[{""id"":1,""name"":""gato"",""image"":""gato.jpg"",""tag"":{""label"":""Card 1"",""id"":""123456789ABC""}},{""id"":2,""name"":""elefante"",""image"":""elefante.jpg"",""tag"":{""label"":""Card 2"",""id"":""123456789DEF""}},{""id"":3,""name"":""carneiro"",""image"":""carneiro.jpg"",""tag"":{""label"":""Card 2"",""id"":""123456789GHI""}}]}]")]
+        [global::System.Configuration.DefaultSettingValueAttribute("[]")]
         public string themes {
             get {
                 return ((string)(this["themes"]));
@@ -37,8 +37,7 @@ namespace dino.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("[{\"label\":\"Card 1\",\"id\":\"123456789ABC\"},{\"label\":\"Card 2\",\"id\":\"123456789DEF\"},{\"" +
-            "label\":\"Card 3\",\"id\":\"123456789GHI\"}]")]
+        [global::System.Configuration.DefaultSettingValueAttribute(@"[{""label"":""Cartao 1"",""id"":""862721FE""},{""label"":""Cartao 2"",""id"":""E3B5351E""},{""label"":""Cartao 3"",""id"":""A3F50F55""},{""label"":""Cartao 4"",""id"":""E6EB26FE""},{""label"":""Cartao 5"",""id"":""B6C66BFE""},{""label"":""Cartao 6"",""id"":""63D8E554""},{""label"":""Cartao 7"",""id"":""461538FE""},{""label"":""Cartao 8"",""id"":""464560FE""},{""label"":""Cartao 9"",""id"":""338AEA54""},{""label"":""Cartao 10"",""id"":""96AE2BFE""},{""label"":""Cartao 11"",""id"":""D68E54FE""}]")]
         public string tags {
             get {
                 return ((string)(this["tags"]));
@@ -50,7 +49,7 @@ namespace dino.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("1")]
+        [global::System.Configuration.DefaultSettingValueAttribute("0")]
         public int cards_count {
             get {
                 return ((int)(this["cards_count"]));
@@ -66,15 +65,6 @@ namespace dino.Properties {
         public int next_slide_delay {
             get {
                 return ((int)(this["next_slide_delay"]));
-            }
-        }
-        
-        [global::System.Configuration.ApplicationScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("COM1")]
-        public string serial_port {
-            get {
-                return ((string)(this["serial_port"]));
             }
         }
     }

@@ -66,11 +66,30 @@ namespace dino
 
         private void b_save_Click(object sender, EventArgs e)
         {
+            if (card.Name == null || card.Name.Equals(""))
+            {
+                MessageBox.Show(this, "Tem que definir um nome.", "Erro", MessageBoxButtons.OK);
+                return;
+            }
+
+            if (card.Tag == null)
+            {
+                MessageBox.Show(this, "Tem que selecionar uma tag.", "Erro", MessageBoxButtons.OK);
+                return;
+            }
+
+            if (card.ImageFile == null || card.ImageFile.Equals(""))
+            {
+                MessageBox.Show(this, "Tem que selecionar uma imagem.", "Erro", MessageBoxButtons.OK);
+                return;
+            }
+
             if (originalCard == null || (!originalCard.Equals(card) && !card.ImageFile.Equals(originalCard.ImageFile)))
             {
                 card.ImageFile = CopyToPicturesFolder(ofd_image.FileName);
-                //System.IO.File.Delete(System.IO.Path.Combine(Config.GetInstance().ImagesBasePath, originalCard.ImageFile));
             }
+
+            DialogResult = DialogResult.OK;
 
             Close();
         }

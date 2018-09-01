@@ -35,6 +35,7 @@
             this.b_edit = new System.Windows.Forms.Button();
             this.b_delete = new System.Windows.Forms.Button();
             this.pb_title = new System.Windows.Forms.PictureBox();
+            this.cb_com_port = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.pb_title)).BeginInit();
             this.SuspendLayout();
             // 
@@ -56,7 +57,7 @@
             this.b_play.BackColor = System.Drawing.Color.MediumSeaGreen;
             this.b_play.Font = new System.Drawing.Font("Microsoft Sans Serif", 25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.b_play.ForeColor = System.Drawing.Color.White;
-            this.b_play.Location = new System.Drawing.Point(92, 409);
+            this.b_play.Location = new System.Drawing.Point(172, 409);
             this.b_play.Name = "b_play";
             this.b_play.Size = new System.Drawing.Size(180, 60);
             this.b_play.TabIndex = 2;
@@ -111,11 +112,22 @@
             this.pb_title.TabIndex = 0;
             this.pb_title.TabStop = false;
             // 
+            // cb_com_port
+            // 
+            this.cb_com_port.FormattingEnabled = true;
+            this.cb_com_port.Location = new System.Drawing.Point(12, 448);
+            this.cb_com_port.Name = "cb_com_port";
+            this.cb_com_port.Size = new System.Drawing.Size(85, 21);
+            this.cb_com_port.TabIndex = 6;
+            this.cb_com_port.DropDown += new System.EventHandler(this.cb_com_port_DropDown);
+            this.cb_com_port.SelectedIndexChanged += new System.EventHandler(this.cb_com_port_SelectedIndexChanged);
+            // 
             // FormMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(364, 481);
+            this.Controls.Add(this.cb_com_port);
             this.Controls.Add(this.b_delete);
             this.Controls.Add(this.b_edit);
             this.Controls.Add(this.b_new);
@@ -143,6 +155,7 @@
         private System.Windows.Forms.Button b_new;
         private System.Windows.Forms.Button b_edit;
         private System.Windows.Forms.Button b_delete;
+        private System.Windows.Forms.ComboBox cb_com_port;
     }
 }
 

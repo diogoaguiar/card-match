@@ -17,6 +17,7 @@ namespace dino
     public partial class FormMain : Form
     {
         private Config config;
+        private string comPort;
 
         public FormMain()
         {
@@ -35,6 +36,12 @@ namespace dino
         {
             ReloadThemesList();
             b_edit.Enabled = b_delete.Enabled = b_play.Enabled = (lb_themes.SelectedItem != null);
+            cb_com_port.Items.Clear();
+            cb_com_port.Items.AddRange(System.IO.Ports.SerialPort.GetPortNames());
+            if (cb_com_port.Items.Count > 0)
+            {
+                cb_com_port.SelectedIndex = 0;
+            }
         }
 
         private void ReloadThemesList()
@@ -70,7 +77,7 @@ namespace dino
         {
             int themeIndex = lb_themes.SelectedIndex;
             string themeName = lb_themes.GetItemText(lb_themes.SelectedItem);
-            DialogResult confirmation = MessageBox.Show("Tem a certeza que pretende apagar o tema " + themeName + "?", "Apagar tema", MessageBoxButtons.YesNo);
+            DialogResult confirmation = MessageBox.Show(this, "Tem a certeza que pretende apagar o tema " + themeName + "?", "Apagar tema", MessageBoxButtons.YesNo);
 
             if (confirmation == DialogResult.Yes)
             {
@@ -81,10 +88,30 @@ namespace dino
 
         private void b_play_Click(object sender, EventArgs e)
         {
-            FormGame gameForm = new FormGame(lb_themes.SelectedItem as Theme);
+            if (comPort == null || comPort == "")
+            {
+                MessageBox.Show(this, "Porta de comunicação não definida", "Erro", MessageBoxButtons.OK);
+                return;
+            }
+
+            FormGame gameForm = new FormGame(lb_themes.SelectedItem as Theme, comPort);
             Hide();
             gameForm.ShowDialog();
             Show();
+        }
+
+        private void cb_com_port_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            comPort = cb_com_port.SelectedItem as String;
+        }
+
+        private void cb_com_port_DropDown(object sender, EventArgs e)
+        {
+            if (!cb_com_port.Items.Contains(System.IO.Ports.SerialPort.GetPortNames()))
+            {
+                cb_com_port.Items.Clear();
+                cb_com_port.Items.AddRange(System.IO.Ports.SerialPort.GetPortNames());
+            }
         }
     }
 }
