@@ -10,6 +10,22 @@
     <AssemblyName>Dino</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <PublishUrl>C:\Users\Diogo\Documents\projects\card-match\dist\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>2</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <PublishWizardCompleted>true</PublishWizardCompleted>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -31,8 +47,19 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup>
-    <ApplicationIcon>
-    </ApplicationIcon>
+    <ApplicationIcon>dino_icon.ico</ApplicationIcon>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ManifestCertificateThumbprint>99601B69FAFD2E660CADC002186DAE4CBC13897C</ManifestCertificateThumbprint>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ManifestKeyFile>dino_TemporaryKey.pfx</ManifestKeyFile>
+  </PropertyGroup>
+  <PropertyGroup>
+    <GenerateManifests>true</GenerateManifests>
+  </PropertyGroup>
+  <PropertyGroup>
+    <SignManifests>true</SignManifests>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="CloneExtensions, Version=1.4.2.0, Culture=neutral, processorArchitecture=MSIL">
@@ -115,6 +142,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+    <None Include="dino_TemporaryKey.pfx" />
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -144,6 +172,16 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\close.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="dino_icon.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
