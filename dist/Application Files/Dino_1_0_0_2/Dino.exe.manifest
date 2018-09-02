@@ -1,0 +1,99 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<asmv1:assembly xsi:schemaLocation="urn:schemas-microsoft-com:asm.v1 assembly.adaptive.xsd" manifestVersion="1.0" xmlns:asmv1="urn:schemas-microsoft-com:asm.v1" xmlns="urn:schemas-microsoft-com:asm.v2" xmlns:asmv2="urn:schemas-microsoft-com:asm.v2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:co.v1="urn:schemas-microsoft-com:clickonce.v1" xmlns:asmv3="urn:schemas-microsoft-com:asm.v3" xmlns:dsig="http://www.w3.org/2000/09/xmldsig#" xmlns:co.v2="urn:schemas-microsoft-com:clickonce.v2">
+  <asmv1:assemblyIdentity name="Dino.exe" version="1.0.0.2" publicKeyToken="0e4eb30f8d5ce0f4" language="neutral" processorArchitecture="msil" type="win32" />
+  <description asmv2:iconFile="dino_icon.ico" xmlns="urn:schemas-microsoft-com:asm.v1" />
+  <application />
+  <entryPoint>
+    <assemblyIdentity name="Dino" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
+    <commandLine file="Dino.exe" parameters="" />
+  </entryPoint>
+  <trustInfo>
+    <security>
+      <applicationRequestMinimum>
+        <PermissionSet Unrestricted="true" ID="Custom" SameSite="site" />
+        <defaultAssemblyRequest permissionSetReference="Custom" />
+      </applicationRequestMinimum>
+      <requestedPrivileges xmlns="urn:schemas-microsoft-com:asm.v3">
+        <!--
+          UAC Manifest Options
+          If you want to change the Windows User Account Control level replace the 
+          requestedExecutionLevel node with one of the following.
+
+        <requestedExecutionLevel  level="asInvoker" uiAccess="false" />
+        <requestedExecutionLevel  level="requireAdministrator" uiAccess="false" />
+        <requestedExecutionLevel  level="highestAvailable" uiAccess="false" />
+
+         If you want to utilize File and Registry Virtualization for backward 
+         compatibility then delete the requestedExecutionLevel node.
+    -->
+        <requestedExecutionLevel level="asInvoker" uiAccess="false" />
+      </requestedPrivileges>
+    </security>
+  </trustInfo>
+  <dependency>
+    <dependentOS>
+      <osVersionInfo>
+        <os majorVersion="5" minorVersion="1" buildNumber="2600" servicePackMajor="0" />
+      </osVersionInfo>
+    </dependentOS>
+  </dependency>
+  <dependency>
+    <dependentAssembly dependencyType="preRequisite" allowDelayedBinding="true">
+      <assemblyIdentity name="Microsoft.Windows.CommonLanguageRuntime" version="4.0.30319.0" />
+    </dependentAssembly>
+  </dependency>
+  <dependency>
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="CloneExtensions.dll" size="25600">
+      <assemblyIdentity name="CloneExtensions" version="1.4.2.0" language="neutral" processorArchitecture="msil" />
+      <hash>
+        <dsig:Transforms>
+          <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+        </dsig:Transforms>
+        <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+        <dsig:DigestValue>G3xDm3VRotD5ZxCzDBWzmbJD9rryHtLzWY3kNxFAu+o=</dsig:DigestValue>
+      </hash>
+    </dependentAssembly>
+  </dependency>
+  <dependency>
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Dino.exe" size="2072032">
+      <assemblyIdentity name="Dino" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
+      <hash>
+        <dsig:Transforms>
+          <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+        </dsig:Transforms>
+        <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+        <dsig:DigestValue>9Xwqpo/8EcXVBbkEKcqoVBOGZdBwnq3af8yb3J15Cmc=</dsig:DigestValue>
+      </hash>
+    </dependentAssembly>
+  </dependency>
+  <dependency>
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Newtonsoft.Json.dll" size="662528">
+      <assemblyIdentity name="Newtonsoft.Json" version="11.0.0.0" publicKeyToken="30AD4FE6B2A6AEED" language="neutral" processorArchitecture="msil" />
+      <hash>
+        <dsig:Transforms>
+          <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+        </dsig:Transforms>
+        <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+        <dsig:DigestValue>9Yw3T/yq5ONtdA2Q+/f+cNCrtzKM2a86CntwgD6ZS6Q=</dsig:DigestValue>
+      </hash>
+    </dependentAssembly>
+  </dependency>
+  <file name="Dino.exe.config" size="3181">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>JcO8M+LFgsvXcfaK5jiCa/KyJKqCUbGPsdjat2zhXd0=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="dino_icon.ico" size="91014">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>CT3ib0fOssqjUqP/nTeVDdexr8gLbqJy4eLo+j2w1TA=</dsig:DigestValue>
+    </hash>
+  </file>
+<publisherIdentity name="CN=DESKTOP-U4P6LSE\Diogo" issuerKeyHash="66b67f739d5a4b4304b44a849c3479a609e030b3" /><Signature Id="StrongNameSignature" xmlns="http://www.w3.org/2000/09/xmldsig#"><SignedInfo><CanonicalizationMethod Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#" /><SignatureMethod Algorithm="http://www.w3.org/2000/09/xmldsig#rsa-sha256" /><Reference URI=""><Transforms><Transform Algorithm="http://www.w3.org/2000/09/xmldsig#enveloped-signature" /><Transform Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#" /></Transforms><DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" /><DigestValue>XGrJVAI3GRSH5YGj6jc0trwumshCbTTi2GKz58ujNxs=</DigestValue></Reference></SignedInfo><SignatureValue>DphpHQ5QmpAtHzn5O+cNZfeOOb8x8SVIYDV/yHsS+2sf/VD/5XaJy/SZprQypBaKxlXbf6gaH/aMau8c8A4tqAPIcMVEClorDLmk6NJRFKC4ucdU2lGkpIPhrye1449BVCHdwC1BwLaCn43Slywly5wicdJO7Wkjk6NmcR+MxSg=</SignatureValue><KeyInfo Id="StrongNameKeyInfo"><KeyValue><RSAKeyValue><Modulus>z8738S2FPt2FeA9D4889qMpPjGGmvnQOwZ0Q+Je76iVHIKyhxhgIdKvEaCoo0selVmslg7MmBx6Uv8qwy8WXK/hmSV5hio8lAqSNVfRVK1a10yci3403IAqP2Mw2WHbyxzyDqK5wX1ST62CuOItHTkdbn52qbgppmWZoAXaT7eE=</Modulus><Exponent>AQAB</Exponent></RSAKeyValue></KeyValue><msrel:RelData xmlns:msrel="http://schemas.microsoft.com/windows/rel/2005/reldata"><r:license xmlns:r="urn:mpeg:mpeg21:2003:01-REL-R-NS" xmlns:as="http://schemas.microsoft.com/windows/pki/2005/Authenticode"><r:grant><as:ManifestInformation Hash="1b37a3cbe7b362d8e2346d42c89a2ebcb63437eaa381e5871419370254c96a5c" Description="" Url=""><as:assemblyIdentity name="Dino.exe" version="1.0.0.2" publicKeyToken="0e4eb30f8d5ce0f4" language="neutral" processorArchitecture="msil" type="win32" /></as:ManifestInformation><as:SignedBy /><as:AuthenticodePublisher><as:X509SubjectName>CN=DESKTOP-U4P6LSE\Diogo</as:X509SubjectName></as:AuthenticodePublisher></r:grant><r:issuer><Signature Id="AuthenticodeSignature" xmlns="http://www.w3.org/2000/09/xmldsig#"><SignedInfo><CanonicalizationMethod Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#" /><SignatureMethod Algorithm="http://www.w3.org/2000/09/xmldsig#rsa-sha256" /><Reference URI=""><Transforms><Transform Algorithm="http://www.w3.org/2000/09/xmldsig#enveloped-signature" /><Transform Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#" /></Transforms><DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" /><DigestValue>2xg0GDkeKEaXgycrZf6k3ut9Xgshl55Cc3v1JlkIAoA=</DigestValue></Reference></SignedInfo><SignatureValue>dG2U+RjFH4/gijhYvDlMNl6p1GfuodtFCS7NBstd7Ww8Y/84XnxaDlMSMlQKAD5gYlHoulUX5VDgd1T1G3SZcTjRLZw9rT+CBHnywSMrIgtZN8QPsOvqMJQJ5AeKv6GAfHXuuEqoZM5hVZEuPe/qdXyQgMYL2vk4Dj6njxyA9Ns=</SignatureValue><KeyInfo><KeyValue><RSAKeyValue><Modulus>z8738S2FPt2FeA9D4889qMpPjGGmvnQOwZ0Q+Je76iVHIKyhxhgIdKvEaCoo0selVmslg7MmBx6Uv8qwy8WXK/hmSV5hio8lAqSNVfRVK1a10yci3403IAqP2Mw2WHbyxzyDqK5wX1ST62CuOItHTkdbn52qbgppmWZoAXaT7eE=</Modulus><Exponent>AQAB</Exponent></RSAKeyValue></KeyValue><X509Data><X509Certificate>MIIB7TCCAVagAwIBAgIQUpe+4FOYGr9CqnQFvhxrTzANBgkqhkiG9w0BAQsFADA1MTMwMQYDVQQDHioARABFAFMASwBUAE8AUAAtAFUANABQADYATABTAEUAXABEAGkAbwBnAG8wHhcNMTgwOTAxMTI0MDU1WhcNMTkwOTAxMTg0MDU1WjA1MTMwMQYDVQQDHioARABFAFMASwBUAE8AUAAtAFUANABQADYATABTAEUAXABEAGkAbwBnAG8wgZ8wDQYJKoZIhvcNAQEBBQADgY0AMIGJAoGBAM/O9/EthT7dhXgPQ+PPPajKT4xhpr50DsGdEPiXu+olRyCsocYYCHSrxGgqKNLHpVZrJYOzJgcelL/KsMvFlyv4ZkleYYqPJQKkjVX0VStWtdMnIt+NNyAKj9jMNlh28sc8g6iucF9Uk+tgrjiLR05HW5+dqm4KaZlmaAF2k+3hAgMBAAEwDQYJKoZIhvcNAQELBQADgYEAQ9AWxWg75WQ/jKqgvMhMXQr9yAaC5t8w3Lb0FC3dYkc4vDZ9qB87B0gBbSskpHq69S0AgyZqBRkKAU1I6z5WQMc21bBg2Hg358EffJUngRz/T+kO8/6//lnu0tHHkRjDPuVKHhlsFCH5BL+jpn23Y1HMzf1N2z0il03aOXiTu3U=</X509Certificate></X509Data></KeyInfo></Signature></r:issuer></r:license></msrel:RelData></KeyInfo></Signature></asmv1:assembly>
