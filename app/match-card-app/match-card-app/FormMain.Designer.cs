@@ -114,6 +114,7 @@
             // 
             // cb_com_port
             // 
+            this.cb_com_port.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.cb_com_port.FormattingEnabled = true;
             this.cb_com_port.Location = new System.Drawing.Point(12, 448);
             this.cb_com_port.Name = "cb_com_port";
