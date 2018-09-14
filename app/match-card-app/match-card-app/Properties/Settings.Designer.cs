@@ -35,27 +35,12 @@ namespace dino.Properties {
             }
         }
         
-        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute(@"[{""label"":""Cartao 1"",""id"":""862721FE""},{""label"":""Cartao 2"",""id"":""E3B5351E""},{""label"":""Cartao 3"",""id"":""A3F50F55""},{""label"":""Cartao 4"",""id"":""E6EB26FE""},{""label"":""Cartao 5"",""id"":""B6C66BFE""},{""label"":""Cartao 6"",""id"":""63D8E554""},{""label"":""Cartao 7"",""id"":""461538FE""},{""label"":""Cartao 8"",""id"":""464560FE""},{""label"":""Cartao 9"",""id"":""338AEA54""},{""label"":""Cartao 10"",""id"":""96AE2BFE""},{""label"":""Cartao 11"",""id"":""D68E54FE""},{""label"":""Cartao 12"",""id"":""265D50FE""},{""label"":""Cartao 13"",""id"":""26C049FE""},{""label"":""Cartao 14"",""id"":""F6AEF5FD""},{""label"":""Cartao 15"",""id"":""A3AE0D55""},{""label"":""Cartao 16"",""id"":""76B212FE""},{""label"":""Cartao 17"",""id"":""237D0C55""},{""label"":""Cartao 18"",""id"":""E61725FE""},{""label"":""Cartao 19"",""id"":""A6D918FE""},{""label"":""Cartao 20"",""id"":""F3EDE054""},{""label"":""Cartao 21"",""id"":""D34B0D55""},{""label"":""Cartao 22"",""id"":""83490F55""},{""label"":""Cartao 23"",""id"":""966C63FE""},{""label"":""Cartao 24"",""id"":""565B50FE""},{""label"":""Cartao 25"",""id"":""F62825FE""}]")]
+        [global::System.Configuration.DefaultSettingValueAttribute(@"[{""label"":""Cartão 001"",""id"":""862721FE""},{""label"":""Cartão 002"",""id"":""E3B5351E""},{""label"":""Cartão 003"",""id"":""A3F50F55""},{""label"":""Cartão 004"",""id"":""E6EB26FE""},{""label"":""Cartão 005"",""id"":""B6C66BFE""},{""label"":""Cartão 006"",""id"":""63D8E554""},{""label"":""Cartão 007"",""id"":""461538FE""},{""label"":""Cartão 008"",""id"":""464560FE""},{""label"":""Cartão 009"",""id"":""338AEA54""},{""label"":""Cartão 010"",""id"":""96AE2BFE""},{""label"":""Cartão 011"",""id"":""D68E54FE""},{""label"":""Cartão 012"",""id"":""265D50FE""},{""label"":""Cartão 013"",""id"":""26C049FE""},{""label"":""Cartão 014"",""id"":""F6AEF5FD""},{""label"":""Cartão 015"",""id"":""A3AE0D55""},{""label"":""Cartão 016"",""id"":""76B212FE""},{""label"":""Cartão 017"",""id"":""237D0C55""},{""label"":""Cartão 018"",""id"":""E61725FE""},{""label"":""Cartão 019"",""id"":""A6D918FE""},{""label"":""Cartão 020"",""id"":""F3EDE054""},{""label"":""Cartão 021"",""id"":""D34B0D55""},{""label"":""Cartão 022"",""id"":""83490F55""},{""label"":""Cartão 023"",""id"":""966C63FE""},{""label"":""Cartão 024"",""id"":""565B50FE""},{""label"":""Cartão 025"",""id"":""F62825FE""}]")]
         public string tags {
             get {
                 return ((string)(this["tags"]));
-            }
-            set {
-                this["tags"] = value;
-            }
-        }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("0")]
-        public int cards_count {
-            get {
-                return ((int)(this["cards_count"]));
-            }
-            set {
-                this["cards_count"] = value;
             }
         }
         

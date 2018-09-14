@@ -13,7 +13,7 @@ namespace dino.Models
     public class Card : IComparable
     {
         [JsonProperty("id")]
-        public int Id { get; set;  }
+        public string Id { get; set;  }
         [JsonProperty("name")]
         public string Name { get; set; }
         [JsonProperty("tag")]
@@ -23,7 +23,7 @@ namespace dino.Models
 
         public Card()
         {
-            Id = 0;
+            Id = Guid.NewGuid().ToString();
             Name = null;
             Tag = null;
             ImageFile = null;

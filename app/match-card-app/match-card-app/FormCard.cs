@@ -36,12 +36,11 @@ namespace dino
         {
             tb_name.Text = card.Name ?? "";
             Config config = Config.GetInstance();
-            List<Tag> availableTags = config.Tags.FindAll(t => theme.Cards.Find(c => c.Tag.Equals(t)) == null);
             if (card.Tag != null)
             {
                 cb_tag.Items.Add(card.Tag);
             }
-            cb_tag.Items.AddRange(availableTags.ToArray());
+            cb_tag.Items.AddRange(config.Tags.ToArray());
             cb_tag.SelectedIndex = 0;
             if (card.Name != null)
             {

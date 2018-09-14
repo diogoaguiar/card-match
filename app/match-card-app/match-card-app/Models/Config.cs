@@ -49,13 +49,6 @@ namespace dino.Models
             Themes.AddRange(JsonConvert.DeserializeObject<List<Theme>>(json));
         }
 
-        private void SaveTags()
-        {
-            string json = JsonConvert.SerializeObject(Tags);
-            Properties.Settings.Default.tags = json;
-            Properties.Settings.Default.Save();
-        }
-
         private void SaveThemes()
         {
             string json = JsonConvert.SerializeObject(Themes);

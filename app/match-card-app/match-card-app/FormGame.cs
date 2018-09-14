@@ -82,11 +82,6 @@ namespace dino
             }
         }
 
-        private void pb_close_Click(object sender, EventArgs e)
-        {
-            Close();
-        }
-
         private void Correct()
         {
             pb_result.Image = correctImage;
@@ -125,16 +120,6 @@ namespace dino
             }
         }
 
-        private void b_certo_Click(object sender, EventArgs e)
-        {
-            Correct();
-        }
-
-        private void b_errado_Click(object sender, EventArgs e)
-        {
-            Wrong();
-        }
-
         void ParseCardId(object sender, SerialDataReceivedEventArgs e)
         {
             serialInput += serial.Port.ReadExisting();
@@ -142,7 +127,6 @@ namespace dino
 
         private void timerCheck_Tick(object sender, EventArgs e)
         {
-            //serialInput += serial.Port.ReadExisting();
             if (!serialInput.EndsWith("\r\n"))
             {
                 return;
@@ -153,16 +137,18 @@ namespace dino
             string cardId = serialInput.Trim();
             serialInput = "";
             Console.WriteLine(cardId);
-            Card card = theme.Cards.Find(c => c.Tag.Id.Equals(cardId));
+            List<Card> cards = theme.Cards.FindAll(c => c.Tag.Id.Equals(cardId));
 
-            if (theme.Cards[index].Equals(card))
+            foreach (Card card in cards)
             {
-                Correct();
+                if (theme.Cards[index].Equals(card))
+                {
+                    Correct();
+                    return;
+                }
             }
-            else
-            {
-                Wrong();
-            }
+
+            Wrong();
         }
 
         private void FormGame_FormClosing(object sender, FormClosingEventArgs e)
